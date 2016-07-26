@@ -1,0 +1,421 @@
+body{
+	padding: 1%;
+	margin: 1;
+	height: 100%;
+	padding: 0px;
+	font-family: Arial, Verdana;
+	}
+
+.titulo{
+	width: 100.0%;
+    border-collapse: collapse;
+    border: none;
+    border-bottom:solid #D9D9D9 2.0pt;
+	padding:0cm 10px 0cm 10px;
+}
+.tituloDependencia{
+	width:33.3%;
+	border:none;
+	margin-top:4.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:12.0pt;
+	color:#0d0d0d;
+}
+.logo1 .logo2{
+	width:33.3%;
+	border:none;
+	border-bottom:solid #D9D9D9 1.0pt;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	margin-top:4.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+}
+.logo2{
+	text-align:right;
+}
+.dateTime{
+	text-align: right;
+}
+.subtitulo{
+	    padding: 0cm 5px 0cm 5px;
+}
+.tituloRepor{
+	text-align: center;
+}
+/* ENCABEZADO DONDE LLEVA EL TIPO DE TíTILO*/
+.tipeReport{
+	width:100.0%;
+	background:#333639;
+	padding:0cm 5px 0cm 5px;
+	color:white;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.textColum{
+	width:50.0%;
+}
+/* TITULO DE DETALLES*/
+.detalles{
+	border: none;
+    border-bottom:solid #D9D9D9 1.0pt;
+    width:100.0%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	margin-bottom: 0px;
+    margin-top: 0px;
+	height:13.1pt;
+}
+.detallesFiltro {
+	width:100.0%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	height:13.1pt;
+}
+.desc{
+	width:20%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	height:24.35pt
+	font-size: 9.0pt;
+    color: #595959;
+    vertical-align: top;
+}
+.descFecha{
+	width:40%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	height:24.35pt;
+	font-size: 9.0pt;
+    color: #595959;
+    vertical-align: top;
+}
+/*ESTILO a la tabla, titulos*/
+.encabezadosTabla{
+	border-top:solid #999999 1.0pt;
+	width: 100.0%;
+    background: #333639;
+    padding: 0cm 5px 0cm 5px;
+    color: white;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 9.0pt;
+    text-align:center;
+}
+.reporteTable{
+	width:100.0%;
+	border-collapse:collapse;
+	border:none;
+}
+.date1{
+	width:2%;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+	border-left: solid #999999 1.0pt;
+	
+}
+.date2{
+	width:19%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date3{
+	width:15%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date4{
+	width:2%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date5{
+	width:6%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date6{
+	width:8%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date7{
+	width:12%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date8{
+	width:15%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.date9{
+	width:14%;
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.registrosBlanco{
+	border-top:solid #999999 1.0pt;
+	width: 100.0%;
+    padding: 0cm 5px 0cm 5px;
+    padding-top: 5px;
+    font-size: 9.0pt;
+    border-top:none;
+    margin-bottom:0cm;
+	border-bottom:	solid #999999 1.0pt;
+}
+.registrosGey{
+	border-top:solid #999999 1.0pt;
+	width: 100.0%;
+    padding: 0cm 5px 0cm 5px;
+    padding-top: 5px;
+    font-size: 9.0pt;
+    border-top:none;
+    margin-bottom:0cm;
+	border-bottom:	solid #999999 1.0pt;
+	background: #CECECE;
+}
+.registro1{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+	border-left: solid #999999 1.0pt;
+
+}
+.registro2{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+}
+.registro3{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align: center;
+}
+.registro4{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.registro5{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.registro6{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.registro7{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.registro8{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.registro9{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+/*OTROS OBJETOS DE ESTILO DE RUEBA*/
+.reporteTable {
+    overflow:hidden;
+    border:1px solid #d3d3d3;
+    background:#fefefe;
+    -moz-border-radius:5px; /* FF1+ */
+    -webkit-border-radius:5px; /* Saf3-4 */
+    border-radius:5px;
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.encabezadosTablas{
+	padding:18px 28px 18px; 
+	text-align:center;
+	padding-top:22px; 
+	text-shadow: 1px 1px 1px #fff; 
+	background:#e8eaeb;
+	border-top:1px solid #e0e0e0; 
+	border-right:1px solid #e0e0e0;
+
+	padding-top:22px; text-shadow: 1px 1px 1px #fff; 
+	background:#e8eaeb;
+}
+.creditos{
+	font-size: 5.0pt;
+    color: #C9C9C9;
+    font-style: normal;
+    text-align: center;
+    font-family: 'Cambria',serif;
+}
+/* PARA DOCUMENTO 1*/
+.doc2ConsultorDetallesIzq{
+	width:25%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+}
+
+.doc2ConsultorDetallesVariable{
+	width:24.28%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+}
+.doc2ConsultorDetallesfecha{
+	width:8.32%;
+	border:none;
+  	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+}
+
+.infoCons{	
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.info1{
+	width:15%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+  	text-align: right;
+  	font-weight: bold;
+}
+.info2{
+	width:15%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+}
+.info3{
+	width:15%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+  	font-weight: bold;
+}
+
+.info4{
+	width:15%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+  	text-align: right;
+}
+.info5{
+	width:15%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+  	font-weight: bold;
+}
+.info6{
+	width:11%;
+	border:none;
+	padding:0cm 5.4pt 0cm 5.4pt;
+  	height:12.9pt;
+}
+
+.detallesCon{
+	width:100.0%;
+	border-collapse:collapse;
+}
+
+.date2Doc2{
+	padding:0cm 5.4pt 0cm 5.4pt;
+	border-right:solid #999999 1.0pt;
+	border-bottom:	solid #999999 1.0pt;
+}
+.centrarElement{
+	text-align: center;
+}
+.textIzq{
+	text-align: left;
+}
+.textDer{
+	text-align: right;
+}
+
+.descFechaRegistro{
+	padding:0cm 5.4pt 0cm 5.4pt;
+	height:24.35pt;
+	font-size: 9.0pt;
+    color: #595959;
+}
+h5{
+	margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.detallesConsultor{
+	width:49%;
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.detallesServiceServer{
+	width:49%;
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.consultorDetalle{
+	border-bottom:	solid #999999 1.0pt;
+	border-right: solid #999999 1.0pt;
+	text-align:center;
+}
+.detalleCon{
+	width:25%;
+	font-size: 9.0pt;
+}
+.le{
+	overflow:hidden;
+    border:1px solid #d3d3d3;
+    background:#fefefe;
+    -moz-border-radius:5px; /* FF1+ */
+    -webkit-border-radius:5px; /* Saf3-4 */
+    border-radius:5px;
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.detalleServ{
+	width:25%;
+}
+.formatEncabezadoTableService{
+
+}
+
+.encabezadosTablaDetalles{
+	border-top:solid #999999 1.0pt;
+	width: 100.0%;
+    background: #A2A2A2;
+    padding: 0cm 5px 0cm 5px;
+    color: white;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 9.0pt;
+    text-align:center;
+}
+
+.marginTop{
+	    vertical-align: top;
+}
+img{
+	text-align: center;
+}
