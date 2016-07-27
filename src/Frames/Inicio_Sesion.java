@@ -19,7 +19,6 @@ import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -28,8 +27,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -864,7 +861,7 @@ public class Inicio_Sesion extends javax.swing.JFrame implements Runnable {
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("<html> <body>Sistema Integral de la Subdireccion de Desarrollo e Innovación </body> </html>");
+        jLabel7.setText("<html> <body>Sistema Integral de la Subdirección de Desarrollo e Innovación </body> </html>");
 
         txtUser.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         txtUser.setText("ejemplo@conacyt.com.mx");

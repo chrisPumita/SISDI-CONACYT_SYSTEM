@@ -429,7 +429,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconsBar/User Manual-48.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manual"/>
+                <Property name="text" type="java.lang.String" value="Manual de Usuario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem19ActionPerformed"/>

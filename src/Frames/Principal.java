@@ -1362,7 +1362,7 @@ public class Principal extends javax.swing.JFrame implements Runnable {
 
         jMenuItem19.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMenuItem19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsBar/User Manual-48.png"))); // NOI18N
-        jMenuItem19.setText("Manual");
+        jMenuItem19.setText("Manual de Usuario");
         jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem19ActionPerformed(evt);

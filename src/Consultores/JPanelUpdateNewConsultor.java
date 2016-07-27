@@ -316,6 +316,7 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
         btnAddAllServer.setEnabled(true);
         btnUseEmailActual.setEnabled(true);
         btnUseEmailActual.setEnabled(true);
+        btnImprimir.setEnabled(true);
     }
 
     private void bloequeaObjetos() {
@@ -343,7 +344,7 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
         btnQuitarAllServer.setEnabled(false);
         btnAddAllServer.setEnabled(false);
         btnUseEmailActual.setEnabled(false);
-        btnUseEmailActual.setEnabled(false);
+        btnImprimir.setEnabled(false);
     }
 
     private void limpiaObj() {
@@ -361,12 +362,6 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
 
         lblRegistrosFoundService1.setText("");
         lblRegistrosFoundService.setText("");
-//        Calendar dateToday = new GregorianCalendar();
-//        JDateAlta.setCalendar(dateToday);
-//        JDateBaja.setCalendar(dateToday);
-//
-//        btnGuararUpdateConsultor.setText("Guardar");
-
         for (int i = TBLRegistroConsultor.getRowCount() - 1; i >= 0; i--) {
             TABLARegistroConsultor.removeRow(i);
         }
@@ -389,7 +384,6 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
             statusRegistro = false;
             lblRegistroStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/off.png")));
             lblRegistroStatus.setToolTipText("INACTIVO");
-
         } else {
             statusRegistro = true;
             lblRegistroStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/on.png")));
@@ -510,9 +504,8 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
 
                 //Cargando y poniendo las fechas, el el caso de que no tenga registro se omitirá esta accion
                 if (registro[1] == null) {
-                    //si no hay registro colocar la fecha actual
-//                    Calendar dateToday = new GregorianCalendar();
-//                    JDateAlta.setCalendar(dateToday);
+                    Date date = null;
+                    JDateAlta.setDate(date);
                 } else {
                     //Intentar colocar la fecha correposndiete
                     SimpleDateFormat formato = new SimpleDateFormat("yyy-MM-dd");
@@ -527,10 +520,8 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
                     }
                 }
                 if (registro[2] == null) {
-
-//                    Calendar dateToday = new GregorianCalendar();
-//                    JDateBaja.setCalendar(dateToday);
-//Intentar colocar la fecha correposndiete
+                    Date date = null;
+                    JDateBaja.setDate(date);
                 } else {
                     SimpleDateFormat formato = new SimpleDateFormat("yyy-MM-dd");
                     Date fechaDate = null;
@@ -1530,6 +1521,7 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
         btnImprimir.setText("Imprimir");
         btnImprimir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, Color.decode("#4D92DF"), Color.decode("#4D92DF"), Color.decode("#4D92DF"), Color.decode("#4D92DF")));
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimir.setEnabled(false);
         btnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnImprimirMouseClicked(evt);
@@ -1543,7 +1535,7 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
             .addGroup(PanelRegistroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelServiciosServers, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                    .addComponent(PanelServiciosServers)
                     .addGroup(PanelRegistroLayout.createSequentialGroup()
                         .addComponent(CBOConsultorias, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1784,7 +1776,8 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
     }//GEN-LAST:event_btnGuardarUpdateRegistroMouseClicked
 
     private void btnImprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseClicked
-
+        // Imprimir al consultor y su informacion especifica
+        JOptionPane.showMessageDialog(null, "Actualmente no disponible");
     }//GEN-LAST:event_btnImprimirMouseClicked
 
     private void btnNuevoRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoRegistroMouseClicked

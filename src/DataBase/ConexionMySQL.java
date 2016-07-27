@@ -13,24 +13,11 @@ import javax.swing.JOptionPane;
 public class ConexionMySQL {
 
     public String db = "sisdi_db";    
-//  public String db = "u338219182_mcsys";    
-    
-    
-    
- //   public String url = "jdbc:mysql://localhost:3306/"+db; //Base local
-//    public String url = "jdbc:mysql://192.168.1.60:3306/"+db;     //Base de datos FIja
-//    public String url = "jdbc:mysql://192.168.1.82:3306/"+db; ///Base de datos de  Acer
-//    public String url = "jdbc:mysql://192.168.1.68:3306/" + db; ///Base de datos de  Acer
-  
+
     public String url =   "jdbc:mysql://"+ReadFile()+":3306/" + db; ///IP Configurable
-  //  USE THIS CODE TO CREATE A DATA BASE ON OTHER SERVER
-    
- 
+
     public String user = "root";
     public String pass = "";
-//    public String user = "u338219182_rcsg";
-//    public String pass = "McSystem@localhost";
-
     public ConexionMySQL() {
         ReadFile();
     }
