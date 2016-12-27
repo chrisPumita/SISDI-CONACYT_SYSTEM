@@ -244,6 +244,93 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
         cargaDatosTable();
     }
 
+    private void generarConsultaToPrint() {
+        sSQLQuery = "SELECT "
+                + "reg_consultor.ID_reg_cons AS IDReg,"
+                + "consultor.ID_consultor AS id, "
+                + "CONCAT (consultor.nombre_c, ' ' ,consultor.apellidoP_c, ' ' ,consultor.apellidoM_c) AS name, "
+                + "consultor.correo_c AS correo, "
+                + "IF (reg_consultor.estatus_reg_cons = 1,'ACTIVO','INACTIVO') AS edo, "
+                + "consultoria.nombre_consultoria AS con, "
+                + "proyecto.sigla_proyecto AS proy, "
+                + "reg_consultor.f_ingreso AS fechaI, "
+                + "reg_consultor.f_baja AS fechaF "
+                + "FROM consultor, proyecto, consultoria, reg_consultor  "
+                + "WHERE reg_consultor.ID_consultor = consultor.ID_consultor "
+                + "AND reg_consultor.ID_proy = proyecto.ID_proyecto "
+                + "AND reg_consultor.ID_consultoria = consultoria.ID_consultoria "
+                + "AND consultor.estatus_c = 1  ";
+        //name,correo,edo,con,proy,fechaI,fechaF,
+        if (BoxStatus.isSelected()) {
+            String value = "0";
+            if (0 == CBOStatus.getSelectedIndex()) {
+                value = "1";
+            }
+            sSQLQuery = sSQLQuery + " AND reg_consultor.estatus_reg_cons = " + value;
+        }
+        //Si se ha seleccionado filtrar por fecha de ingreso
+        if (BoxFIngreso.isSelected()) {
+            String fIngreso1, fIngreso2;
+            fIngreso1 = "NULL";
+            fIngreso2 = "NULL";
+            Date FechaEnt1 = JDateAlta1.getDate();
+            Date FechaEnt2 = JDateAlta2.getDate();
+            if (FechaEnt1 != null && FechaEnt2 != null) {
+                fIngreso1 = "'" + UtileriaFecha.ConvertirString(FechaEnt1) + "'";
+                fIngreso2 = "'" + UtileriaFecha.ConvertirString(FechaEnt2) + "'";
+            }
+            sSQLQuery = sSQLQuery + " AND reg_consultor.f_ingreso BETWEEN  " + fIngreso1 + " AND " + fIngreso2 + "  ";
+        }
+        if (BoxFBaja.isSelected()) {
+            String fBaja1, fBaja2;
+            fBaja1 = "NULL";
+            fBaja2 = "NULL";
+            Date FechaBaja1 = JDateBaja1.getDate();
+            Date FechaBaja2 = JDateBaja2.getDate();
+            if (FechaBaja1 != null && FechaBaja2 != null) {
+                fBaja1 = "'" + UtileriaFecha.ConvertirString(FechaBaja1) + "'";
+                fBaja2 = "'" + UtileriaFecha.ConvertirString(FechaBaja2) + "'";
+            }
+            sSQLQuery = sSQLQuery + " AND reg_consultor.f_baja BETWEEN  " + fBaja1 + " AND " + fBaja2 + "  ";
+        }
+
+        if (BoxConsultoria.isSelected()) {
+            if (ListConsultoria.getModel().getSize() > 0) {
+                //Si la List tiene un elemento o mas.
+                //obtener todos los elementos y concatenarlos en un or
+                sSQLQuery = sSQLQuery + " AND ( ";
+                String element;
+                for (int i = 0; i < ListConsultoria.getModel().getSize(); i++) {
+                    element = ListConsultoria.getModel().getElementAt(i);
+                    if (i > 0) {
+                        sSQLQuery = sSQLQuery + " OR consultoria.nombre_consultoria = '" + element + "'  ";
+                    } else {
+                        sSQLQuery = sSQLQuery + " consultoria.nombre_consultoria = '" + element + "'  ";
+                    }
+                }
+                sSQLQuery = sSQLQuery + " )";
+            }
+        }
+        if (BoxProyecto.isSelected()) {
+            if (ListProyectos.getModel().getSize() > 0) {
+                //Si la List tiene un elemento o mas.
+                //obtener todos los elementos y concatenarlos en un or
+                sSQLQuery = sSQLQuery + " AND ( ";
+                String element;
+                for (int i = 0; i < ListProyectos.getModel().getSize(); i++) {
+                    element = ListProyectos.getModel().getElementAt(i);
+                    if (i > 0) {
+                        sSQLQuery = sSQLQuery + " OR proyecto.sigla_proyecto = '" + element + "'  ";
+                    } else {
+                        sSQLQuery = sSQLQuery + " proyecto.sigla_proyecto = '" + element + "'  ";
+                    }
+                }
+                sSQLQuery = sSQLQuery + " )";
+            }
+        }
+        sSQLQuery = sSQLQuery + " ORDER BY nombre_c ASC";
+    }
+
     private void cargaDatosTable() {
         String sSQL = sSQLQuery;
         String[] registro = new String[12];
@@ -347,7 +434,8 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
         Connection cn = (Connection) mysql.Conectar();
 
         String status = "TODOS";
-        String clase;
+        String clase, IDRegistro;
+        String Ssql;
 
         if (BoxStatus.isSelected()) {
             if (CBOStatus.getSelectedItem().equals("ACTIVO")) {
@@ -368,6 +456,8 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
         ps.println("<html lang='en'>");
         ps.println("<head>");
         ps.println("<meta charset='UTF-8'>");
+        ps.println("<meta http-equiv=Content-Type content='text/html; charset=windows-1252'>");
+        ps.println("<meta name=Generator content='Microsoft Word 15 (filtered)'>");
         ps.println("<title>Reporte General de Consultores</title>");
         ps.println("<link rel='stylesheet' href='css/stilo.css'>");
         ps.println("</head>");
@@ -468,6 +558,7 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
             while (rs.next()) {
                 ps.println("<tr>");
 //                registro[0] = numeracion;
+
                 registro[0] = rs.getString("name");
                 registro[1] = rs.getString("correo");
                 registro[2] = rs.getString("edo");
@@ -475,6 +566,8 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
                 registro[4] = rs.getString("proy");
                 registro[5] = rs.getString("fechaI");
                 registro[6] = rs.getString("fechaF");
+                registro[7] = rs.getString("IDReg");
+                IDRegistro = registro[7];
                 numeracion++;
                 if (numeracion % 2 == 0) {
                     clase = "registrosGey";
@@ -493,7 +586,12 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
                 ps.println("<td class='registro5'>" + registro[3] + "</td>");
                 ps.println("<td class='registro6'>" + registro[4] + "</td>");
                 ps.println("<!--COMIENZA A LLENAR LOS SERVICIOS Y SERVIDORES-->");
-                ps.println("<td class='registro7'>SERVIDORES<br>SERVICIOS VARIOS</td>");
+                //BUSCANDO SERVICIOS
+                Ssql = "SELECT ID_reg_serv FROM reg_servicio WHERE ID_regConsultorFK = " + IDRegistro;
+                int servicios = BuscaRegisros(Ssql, "ID_reg_serv");
+                Ssql = "SELECT ID_reg_server FROM reg_server WHERE ID_regConsultor = " + IDRegistro;
+                int servidores = BuscaRegisros(Ssql, "ID_reg_server");
+                ps.println("<td class='registro7'>SERVIDORES: " + servidores + "<br>SERVICIOS: " + servicios + "</td>");
                 if (registro[5] == null) {
                     ps.println("<td class='registro8'></td>");
                 } else {
@@ -516,6 +614,27 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error geberate HTML \n" + ex);
         }
+    }
+
+    private int BuscaRegisros(String sSQL1, String identificador) {
+        int contador = 0;
+        String[] Nombre1 = new String[1];
+
+        ConexionMySQL mysql = new ConexionMySQL();
+        Connection cn = (Connection) mysql.Conectar();
+        try {
+            Statement st1 = (Statement) cn.createStatement();
+
+            ResultSet rs1 = st1.executeQuery(sSQL1);
+            while (rs1.next()) {
+                Nombre1[0] = rs1.getString(identificador);
+                contador++;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No es posible cargar la informacion:\n ERROR: " + ex);
+        }
+
+        return contador;
     }
 
     public void abrirarchivo(String archivo) {
@@ -1398,6 +1517,7 @@ public class JPanelCreateReportConsultor extends javax.swing.JDialog {
     private void btnEnviar8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviar8MouseClicked
         limpiaTabla();
         generarConsulta();
+        generarConsultaToPrint();
         TBLRegistros.setEnabled(true);
         try {
             creaArchivoHTML();

@@ -1777,7 +1777,9 @@ public class JPanelUpdateNewConsultor extends javax.swing.JDialog {
 
     private void btnImprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseClicked
         // Imprimir al consultor y su informacion especifica
+
         JOptionPane.showMessageDialog(null, "Actualmente no disponible");
+
     }//GEN-LAST:event_btnImprimirMouseClicked
 
     private void btnNuevoRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoRegistroMouseClicked
